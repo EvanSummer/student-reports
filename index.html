@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生能力曲线 - 江心意</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 16px;
+            border-left: 4px solid #4CAF50;
+            padding-left: 12px;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .info-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        .info-item .label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        .info-item .value {
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        .tag-green {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .tag-blue {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .tag-orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        .feedback-section {
+            margin-top: 16px;
+        }
+        .feedback-item {
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        .feedback-date {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        .feedback-content {
+            color: #333;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>江心意 - 学习能力分析报告</h1>
+        <div class="subtitle">数据更新时间：2026年4月25日</div>
+    </div>
+
+    <div class="card">
+        <h2>能力雷达图</h2>
+        <div class="chart-container">
+            <canvas id="radarChart"></canvas>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>能力评分</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="label">数位处理</div>
+                <div class="value">95分</div>
+            </div>
+            <div class="info-item">
+                <div class="label">逻辑推理</div>
+                <div class="value">92分</div>
+            </div>
+            <div class="info-item">
+                <div class="label">代码实现</div>
+                <div class="value">90分</div>
+            </div>
+            <div class="info-item">
+                <div class="label">知识迁移</div>
+                <div class="value">88分</div>
+            </div>
+            <div class="info-item">
+                <div class="label">课堂专注</div>
+                <div class="value">93分</div>
+            </div>
+            <div class="info-item">
+                <div class="label">学习速度</div>
+                <div class="value">96分</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>能力标签</h2>
+        <div>
+            <span class="tag tag-green">班级第一梯队</span>
+            <span class="tag tag-blue">学习能力突出</span>
+            <span class="tag tag-blue">代码实现能力强</span>
+            <span class="tag tag-orange">进步空间大</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>课堂反馈记录</h2>
+        <div class="feedback-section">
+            <div class="feedback-item">
+                <div class="feedback-date">2026年4月25日</div>
+                <div class="feedback-content">
+                    表现<span class="highlight">优秀</span>，完成进度明显快于班级大多数同学。
+                    能够吸收额外讲解内容，并将新思路快速实现为代码。
+                    对<span class="highlight">数位处理</span>及相关拓展思路掌握扎实，能够灵活运用并进行延伸。
+                </div>
+            </div>
+            <div class="feedback-item">
+                <div class="feedback-date">2026年4月18日</div>
+                <div class="feedback-content">
+                    课堂表现积极，逻辑思维清晰，代码编写规范。
+                    对新知识点理解迅速，能够举一反三。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 雷达图
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['数位处理', '逻辑推理', '代码实现', '知识迁移', '课堂专注', '学习速度'],
+                datasets: [{
+                    label: '江心意',
+                    data: [95, 92, 90, 88, 93, 96],
+                    backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                    borderColor: 'rgba(76, 175, 80, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(76, 175, 80, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(76, 175, 80, 1)'
+                }, {
+                    label: '班级平均',
+                    data: [75, 78, 72, 70, 80, 75],
+                    backgroundColor: 'rgba(158, 158, 158, 0.2)',
+                    borderColor: 'rgba(158, 158, 158, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(158, 158, 158, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(158, 158, 158, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
