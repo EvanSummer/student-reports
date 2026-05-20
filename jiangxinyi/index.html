@@ -195,11 +195,11 @@
             <div class="card-title">🏆 关键指标</div>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-value">2</div>
+                    <div class="stat-value">3</div>
                     <div class="stat-label">课程次数</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">10</div>
+                    <div class="stat-value">11</div>
                     <div class="stat-label">完成题目</div>
                 </div>
                 <div class="stat-item">
@@ -239,7 +239,27 @@
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">2026年5月16日 · 第2次课</div>
+                    <div class="timeline-date">2026年4月25日 · 第2次课</div>
+                    <div class="timeline-content">
+                        <span class="badge badge-top">班级第一梯队</span>
+                        <h4 style="margin-top:10px">学习内容</h4>
+                        <ul>
+                            <li>数位处理</li>
+                            <li>条件判断</li>
+                            <li>数组统计</li>
+                            <li>扩展思路应用</li>
+                            <li>代码实现优化</li>
+                        </ul>
+                        <h4 style="margin-top:10px">完成题目</h4>
+                        <ul>
+                            <li>P1314 倒序输出</li>
+                            <li>P1356 个位0到9</li>
+                        </ul>
+                        <p style="margin-top:10px; color:#667eea; font-weight:bold;">💬 教师评语：完成进度明显快于班级大多数同学，能够吸收额外讲解内容并快速实现为代码</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026年5月16日 · 第3次课</div>
                     <div class="timeline-content">
                         <span class="badge badge-excellent">持续优秀</span>
                         <h4 style="margin-top:10px">学习内容</h4>
@@ -305,7 +325,7 @@
         </div>
 
         <div class="footer">
-            <p>生成时间：2026年5月19日 | 数据来源于课堂反馈记录</p>
+            <p>生成时间：2026年5月20日 | 数据来源于课堂反馈记录</p>
         </div>
     </div>
 
@@ -322,6 +342,13 @@
                     borderColor: 'rgba(102, 126, 234, 0.8)',
                     backgroundColor: 'rgba(102, 126, 234, 0.2)',
                     pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+                    borderWidth: 2
+                }, {
+                    label: '4月25日',
+                    data: [93, 89, 87, 91, 95, 86],
+                    borderColor: 'rgba(52, 152, 219, 0.8)',
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    pointBackgroundColor: 'rgba(52, 152, 219, 1)',
                     borderWidth: 2
                 }, {
                     label: '5月16日',
@@ -353,10 +380,10 @@
         new Chart(lineCtx, {
             type: 'line',
             data: {
-                labels: ['4月18日', '5月16日'],
+                labels: ['4月18日', '4月25日', '5月16日'],
                 datasets: [{
                     label: '综合能力评分',
-                    data: [89, 93],
+                    data: [89, 91, 93],
                     borderColor: 'rgba(102, 126, 234, 1)',
                     backgroundColor: 'rgba(102, 126, 234, 0.1)',
                     borderWidth: 3,
@@ -366,7 +393,7 @@
                     tension: 0.4
                 }, {
                     label: '完成题目数',
-                    data: [5, 5],
+                    data: [5, 2, 4],
                     borderColor: 'rgba(118, 75, 162, 1)',
                     backgroundColor: 'rgba(118, 75, 162, 0.1)',
                     borderWidth: 3,
