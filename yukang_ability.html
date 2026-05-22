@@ -32,12 +32,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .comparison-table th { background: #f8f9fa; font-weight: bold; color: #333; }
 .trend-up { color: #28a745; font-weight: bold; }
 .trend-down { color: #dc3545; font-weight: bold; }
+.trend-stable { color: #f39c12; font-weight: bold; }
 @media (max-width: 600px) { .header h1 { font-size: 1.8em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
 <body>
 <div class="container">
-<div class="header"><h1>🎯 裕康的能力曲线</h1><div style="font-size:1.1em;opacity:0.9">六维能力追踪 · 2026年3月 - 4月</div></div>
+<div class="header"><h1>🎯 裕康的能力曲线</h1><div style="font-size:1.1em;opacity:0.9">六维能力追踪 · 2026年3月 - 5月</div></div>
 
 <div class="card"><div class="card-title">📊 六维能力雷达图</div><div class="chart-container"><canvas id="abilityRadar"></canvas></div></div>
 <div class="card"><div class="card-title">📈 各维度成长趋势</div><div class="chart-container"><canvas id="abilityTrend"></canvas></div></div>
@@ -45,9 +46,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 <div class="card">
 <div class="card-title">🏆 关键指标</div>
 <div class="stats-grid">
-<div class="stat-item"><div class="stat-value">+3</div><div class="stat-label">综合提升</div></div>
-<div class="stat-item"><div class="stat-value">+3</div><div class="stat-label">编程基础提升</div></div>
-<div class="stat-item"><div class="stat-value">+7</div><div class="stat-label">动手能力提升</div></div>
+<div class="stat-item"><div class="stat-value">+5</div><div class="stat-label">综合提升</div></div>
+<div class="stat-item"><div class="stat-value">+8</div><div class="stat-label">编程基础提升</div></div>
+<div class="stat-item"><div class="stat-value">+5</div><div class="stat-label">课堂专注提升</div></div>
 <div class="stat-item"><div class="stat-value">70</div><div class="stat-label">当前综合评分</div></div>
 </div>
 </div>
@@ -56,26 +57,35 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 <div class="card-title">🔍 能力详情</div>
 <div class="ability-grid">
 <div class="ability-card"><div class="ability-name">🧠 逻辑思维</div><div class="ability-desc">条件判断、循环结构、图形输出规律、手动模拟执行</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:70%"></div></div><div class="score-value">70</div></div></div>
-<div class="ability-card"><div class="ability-name">💻 编程基础</div><div class="ability-desc">数据类型、printf格式化、if-else分支、while循环语法</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:68%"></div></div><div class="score-value">68</div></div></div>
-<div class="ability-card"><div class="ability-name">✍️ 动手能力</div><div class="ability-desc">编码实现、题目完成数量、课堂任务执行</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:72%"></div></div><div class="score-value">72</div></div></div>
-<div class="ability-card"><div class="ability-name">🎯 问题解决</div><div class="ability-desc">独立分析问题、耐心思考、减少依赖</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:68%"></div></div><div class="score-value">68</div></div></div>
-<div class="ability-card"><div class="ability-name">👁️ 课堂专注</div><div class="ability-desc">听课状态、减少游戏干扰、跟随课堂节奏</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:72%"></div></div><div class="score-value">72</div></div></div>
-<div class="ability-card"><div class="ability-name">💬 沟通表达</div><div class="ability-desc">理解反馈、接受引导、与教师互动</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:70%"></div></div><div class="score-value">70</div></div></div>
+<div class="ability-card"><div class="ability-name">💻 编程基础</div><div class="ability-desc">数据类型、printf格式化、if-else分支、while循环语法、取模运算</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:68%"></div></div><div class="score-value">68</div></div></div>
+<div class="ability-card"><div class="ability-name">✍️ 动手能力</div><div class="ability-desc">编码实现、题目完成数量、课堂任务执行</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:68%"></div></div><div class="score-value">68</div></div></div>
+<div class="ability-card"><div class="ability-name">🎯 问题解决</div><div class="ability-desc">独立分析问题、耐心思考、减少依赖</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:66%"></div></div><div class="score-value">66</div></div></div>
+<div class="ability-card"><div class="ability-name">👁️ 课堂专注</div><div class="ability-desc">听课状态、减少游戏干扰、跟随课堂节奏</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:73%"></div></div><div class="score-value">73</div></div></div>
+<div class="ability-card"><div class="ability-name">💬 沟通表达</div><div class="ability-desc">理解反馈、接受引导、与教师互动、帮助同学</div><div class="ability-score"><div class="score-bar"><div class="score-fill" style="width:70%"></div></div><div class="score-value">70</div></div></div>
 </div>
 </div>
 
 <div class="card">
 <div class="card-title">📋 历次评分对比</div>
 <table class="comparison-table">
-<tr><th>能力维度</th><th>3月12日</th><th>4月16日</th><th>变化</th></tr>
-<tr><td><strong>逻辑思维</strong></td><td>68</td><td>70</td><td class="trend-up">+2 ↑</td></tr>
-<tr><td><strong>编程基础</strong></td><td>65</td><td>68</td><td class="trend-up">+3 ↑</td></tr>
-<tr><td><strong>动手能力</strong></td><td>65</td><td>72</td><td class="trend-up">+7 ↑</td></tr>
-<tr><td><strong>问题解决</strong></td><td>62</td><td>68</td><td class="trend-up">+6 ↑</td></tr>
-<tr><td><strong>课堂专注</strong></td><td>75</td><td>72</td><td class="trend-down">-3 ↓</td></tr>
-<tr><td><strong>沟通表达</strong></td><td>68</td><td>70</td><td class="trend-up">+2 ↑</td></tr>
-<tr style="background:#f8f9fa;font-weight:bold"><td>综合评分</td><td>67</td><td>70</td><td class="trend-up">+3 ↑</td></tr>
+<tr><th>能力维度</th><th>3月12日</th><th>3月26日</th><th>4月16日</th><th>5月7日</th><th>5月14日</th><th>总变化</th></tr>
+<tr><td><strong>逻辑思维</strong></td><td>68</td><td>65</td><td>70</td><td>75</td><td>74</td><td class="trend-up">+6 ↑</td></tr>
+<tr><td><strong>编程基础</strong></td><td>65</td><td>62</td><td>68</td><td>72</td><td>73</td><td class="trend-up">+8 ↑</td></tr>
+<tr><td><strong>动手能力</strong></td><td>65</td><td>60</td><td>72</td><td>75</td><td>70</td><td class="trend-up">+5 ↑</td></tr>
+<tr><td><strong>问题解决</strong></td><td>62</td><td>58</td><td>68</td><td>73</td><td>71</td><td class="trend-up">+9 ↑</td></tr>
+<tr><td><strong>课堂专注</strong></td><td>75</td><td>65</td><td>72</td><td>78</td><td>75</td><td class="trend-stable">0 →</td></tr>
+<tr><td><strong>沟通表达</strong></td><td>68</td><td>62</td><td>70</td><td>76</td><td>74</td><td class="trend-up">+6 ↑</td></tr>
+<tr style="background:#f8f9fa;font-weight:bold"><td>综合评分</td><td>67</td><td>65</td><td>70</td><td>75</td><td>72</td><td class="trend-up">+5 ↑</td></tr>
 </table>
+</div>
+
+<div class="card">
+<div class="card-title">📊 阶段性分析</div>
+<div style="margin-top:12px; line-height:1.8; color:#555;">
+<p><strong style="color:#1abc9c">第一阶段（3月）：基础适应期</strong> — 刚接触编程，听讲认真但不爱思考，细节知识点遗忘快。3月26日出现畏难情绪，接受新知识能力差，采取蒙混过关态度。</p>
+<p style="margin-top:10px"><strong style="color:#f39c12">第二阶段（4月）：调整期</strong> — 与裕丰分开坐后只能靠自己，虽有进步但太依赖老师，存在偷玩游戏问题。课堂专注度和沟通表达有所改善。</p>
+<p style="margin-top:10px"><strong style="color:#2ecc71">第三阶段（5月）：改善期</strong> — 单独安排学习内容后效果显著，变得爱思考，能独立解决问题，还主动帮助裕丰。引入费曼学习法后，注重知识深度吸收，虽学得慢但更扎实。</p>
+</div>
 </div>
 
 <div class="footer"><p>生成时间：2026年5月22日 | 数据来源于课堂反馈记录</p></div>
@@ -87,21 +97,24 @@ type: 'radar',
 data: {
 labels: ['逻辑思维','编程基础','动手能力','问题解决','课堂专注','沟通表达'],
 datasets: [
-{ label:'3月12日', data:[68,65,65,62,75,68], borderColor:'rgba(26,188,156,0.5)', backgroundColor:'rgba(26,188,156,0.1)', pointBackgroundColor:'rgba(26,188,156,1)', borderWidth:2 },
-{ label:'4月16日', data:[70,68,72,68,72,70], borderColor:'rgba(22,160,133,0.9)', backgroundColor:'rgba(22,160,133,0.15)', pointBackgroundColor:'rgba(22,160,133,1)', borderWidth:3 }
+{ label:'3月12日', data:[68,65,65,62,75,68], borderColor:'rgba(26,188,156,0.4)', backgroundColor:'rgba(26,188,156,0.08)', pointBackgroundColor:'rgba(26,188,156,1)', borderWidth:1.5 },
+{ label:'3月26日', data:[65,62,60,58,65,62], borderColor:'rgba(231,76,60,0.4)', backgroundColor:'rgba(231,76,60,0.08)', pointBackgroundColor:'rgba(231,76,60,1)', borderWidth:1.5 },
+{ label:'4月16日', data:[70,68,72,68,72,70], borderColor:'rgba(243,156,18,0.5)', backgroundColor:'rgba(243,156,18,0.1)', pointBackgroundColor:'rgba(243,156,18,1)', borderWidth:2 },
+{ label:'5月7日', data:[75,72,75,73,78,76], borderColor:'rgba(46,204,113,0.6)', backgroundColor:'rgba(46,204,113,0.12)', pointBackgroundColor:'rgba(46,204,113,1)', borderWidth:2.5 },
+{ label:'5月14日', data:[74,73,70,71,75,74], borderColor:'rgba(22,160,133,0.9)', backgroundColor:'rgba(22,160,133,0.2)', pointBackgroundColor:'rgba(22,160,133,1)', borderWidth:3 }
 ]},
 options: { responsive:true, maintainAspectRatio:false, scales:{r:{beginAtZero:true,max:100,ticks:{stepSize:20}}}, plugins:{legend:{position:'bottom'}} }
 });
 new Chart(document.getElementById('abilityTrend').getContext('2d'), {
 type: 'line',
 data: {
-labels: ['3月12日','4月16日'],
+labels: ['3月12日','3月26日','4月16日','5月7日','5月14日'],
 datasets: [
-{ label:'逻辑思维', data:[68,70], borderColor:'rgba(26,188,156,1)', backgroundColor:'rgba(26,188,156,0.05)', borderWidth:3, pointRadius:5, tension:0.3 },
-{ label:'编程基础', data:[65,68], borderColor:'rgba(22,160,133,1)', backgroundColor:'rgba(22,160,133,0.05)', borderWidth:3, pointRadius:5, tension:0.3 },
-{ label:'动手能力', data:[65,72], borderColor:'rgba(46,204,113,1)', backgroundColor:'rgba(46,204,113,0.05)', borderWidth:3, pointRadius:5, tension:0.3 },
-{ label:'问题解决', data:[62,68], borderColor:'rgba(52,152,219,1)', backgroundColor:'rgba(52,152,219,0.05)', borderWidth:3, pointRadius:5, tension:0.3 },
-{ label:'课堂专注', data:[75,72], borderColor:'rgba(155,89,182,1)', backgroundColor:'rgba(155,89,182,0.05)', borderWidth:3, pointRadius:5, tension:0.3 }
+{ label:'逻辑思维', data:[68,65,70,75,74], borderColor:'rgba(26,188,156,1)', backgroundColor:'rgba(26,188,156,0.05)', borderWidth:3, pointRadius:5, tension:0.3 },
+{ label:'编程基础', data:[65,62,68,72,73], borderColor:'rgba(22,160,133,1)', backgroundColor:'rgba(22,160,133,0.05)', borderWidth:3, pointRadius:5, tension:0.3 },
+{ label:'动手能力', data:[65,60,72,75,70], borderColor:'rgba(46,204,113,1)', backgroundColor:'rgba(46,204,113,0.05)', borderWidth:3, pointRadius:5, tension:0.3 },
+{ label:'问题解决', data:[62,58,68,73,71], borderColor:'rgba(52,152,219,1)', backgroundColor:'rgba(52,152,219,0.05)', borderWidth:3, pointRadius:5, tension:0.3 },
+{ label:'课堂专注', data:[75,65,72,78,75], borderColor:'rgba(155,89,182,1)', backgroundColor:'rgba(155,89,182,0.05)', borderWidth:3, pointRadius:5, tension:0.3 }
 ]},
 options: { responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false}, scales:{y:{beginAtZero:true,max:100,title:{display:true,text:'能力评分'}}}, plugins:{legend:{position:'bottom'}} }
 });
