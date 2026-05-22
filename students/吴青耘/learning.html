@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吴青耘 - 学习档案</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; margin: 0; padding: 20px; color: #333; }
+.container { max-width: 900px; margin: 0 auto; }
+.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 16px; margin-bottom: 24px; text-align: center; }
+.header h1 { margin: 0; font-size: 28px; }
+.header p { margin: 8px 0 0 0; opacity: 0.9; }
+.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.chart-box { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.chart-box h3 { margin: 0 0 16px 0; font-size: 16px; color: #555; }
+.timeline { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.timeline h2 { margin: 0 0 20px 0; font-size: 20px; color: #444; }
+.timeline-item { display: flex; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+.timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.timeline-date { width: 100px; font-weight: bold; color: #667eea; flex-shrink: 0; }
+.timeline-content { flex: 1; }
+.session-header { display: flex; gap: 16px; margin-bottom: 8px; font-size: 14px; }
+.session-score { color: #e74c3c; font-weight: bold; }
+.session-problems { color: #27ae60; }
+.session-perf { color: #555; margin-bottom: 10px; line-height: 1.6; }
+.session-section { margin: 8px 0; font-size: 14px; }
+.tag { display: inline-block; background: #eef2ff; color: #667eea; padding: 4px 10px; border-radius: 12px; margin: 2px 4px 2px 0; font-size: 12px; }
+.problem { background: #f8f9fa; padding: 8px 12px; border-radius: 8px; margin: 4px 0; font-size: 13px; color: #555; border-left: 3px solid #667eea; }
+.session-comment { background: #fffbeb; padding: 10px 14px; border-radius: 8px; margin-top: 10px; font-size: 13px; color: #92400e; border-left: 3px solid #f59e0b; }
+.back-link { display: inline-block; margin-top: 20px; color: #667eea; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+@media (max-width: 768px) { .charts { grid-template-columns: 1fr; } .timeline-item { flex-direction: column; } .timeline-date { margin-bottom: 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>👨‍💻 吴青耘</h1>
+<p>学习档案 | 共 7 节课</p>
+</div>
+<div class="charts">
+<div class="chart-box">
+<h3>🎯 能力雷达图</h3>
+<canvas id="radarChart"></canvas>
+</div>
+<div class="chart-box">
+<h3>📈 学习曲线</h3>
+<canvas id="lineChart"></canvas>
+</div>
+</div>
+<div class="timeline">
+<h2>📝 课程时间线</h2>
+<div class="timeline-item">
+  <div class="timeline-date">2026-03-20</div>
+  <div class="timeline-content">
+    <div class="session-header">
+      <span class="session-score">评分: 82</span>
+      <span class="session-problems">题目: 10道</span>
+    </div>
+    <div class="session-perf">课堂表现良好，本节课已单独安排学习内容，且完成情况良好，提出表扬，遇到⾃⼰⽆法解决的问题， 可以找到⽼师求助，对于遇到的错误经过引导，反应出正确答案的速度还是可以的</div>
+    <div class="session-section"><strong>核心知识点:</strong> <span class="tag">详见反馈</span></div>
+    <div class="session-section"><strong>练习题目:</strong> <div class="problem">课堂练习</div></div>
+    <div class="session-comment">💡 ⽬前孩⼦的情况，需要单独安排学习内容，才能调动主动学习能⼒，所以进度上会落下这个班级      平均⽔平很多</div>
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-date">2026-03-27</div>
+  <div class="timeline-content">
+    <div class="session-header">
+      <span class="session-score">评分: 72</span>
+      <span class="session-problems">题目: 2道</span>
+    </div>
+    <div class="session-perf">课堂单独安排学习任务，整体表现⽐较好，可以完成课上布置的任务，并且不会的问题可以找到⽼ 师求助，变得⽐之前⾃信了，⼀些题⽬可以通过⻓时间思考解决了，同⽔平测试做出题⽬数量排名第 ⼀，特此奖励⼀杯蜜雪冰城</div>
+    <div class="session-section"><strong>核心知识点:</strong> <span class="tag">详见反馈</span></div>
+    <div class="session-section"><strong>练习题目:</strong> <div class="problem">课堂练习</div></div>
+    
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-date">2026-04-03</div>
+  <div class="timeline-content">
+    <div class="session-header">
+      <span class="session-score">评分: 90</span>
+      <span class="session-problems">题目: 8道</span>
+    </div>
+    <div class="session-perf">已经完全改变坐挺多情况，可以认真完成题⽬内容，编写代码明显更加熟练，⼤部分都可以⼀次编 写代码直接通过题⽬，通过题⽬数量19</div>
+    <div class="session-section"><strong>核心知识点:</strong> <span class="tag">详见反馈</span></div>
+    <div class="session-section"><strong>练习题目:</strong> <div class="problem">课堂练习</div></div>
+    
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-date">2026-04-10</div>
+  <div class="timeline-content">
+    <div class="session-header">
+      <span class="session-score">评分: 80</span>
+      <span class="session-problems">题目: 8道</span>
+    </div>
+    <div class="session-perf">课堂表现详见反馈记录</div>
+    <div class="session-section"><strong>核心知识点:</strong> <span class="tag">详见反馈</span></div>
+    <div class="session-section"><strong>练习题目:</strong> <div class="problem">课堂练习</div></div>
+    
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-date">2026-04-17</div>
+  <div class="timeline-content">
+    <div class="session-header">
+      <span class="session-score">评分: 77</span>
+      <span class="session-problems">题目: 7道</span>
+    </div>
+    <div class="session-perf">认真听讲，通过做题重拾信⼼，本节课完成题⽬ 7 道，⽬前状态⾮常好，课上已经可以接受⽼师讲的课 程，随堂练习思考时间稍久，脑⼦很久不⽤有点⽣锈</div>
+    <div class="session-section"><strong>核心知识点:</strong> <span class="tag">详见反馈</span></div>
+    <div class="session-section"><strong>练习题目:</strong> <div class="problem">课堂练习</div></div>
+    
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-date">2026-04-28</div>
+  <div class="timeline-content">
+    <div class="session-header">
+      <span class="session-score">评分: 72</span>
+      <span class="session-problems">题目: 5道</span>
+    </div>
+    <div class="session-perf">认真做题，遇到有问题的地⽅，会主动思考，去尝试进⾏修改，整体知识掌握很不错，需要再训练和练 习，才能更上⼀层楼，孩⼦⽬前是⽐较⾃信的，可以完全接受⽼师的建议，⼀步⼀步提升⾃⼰，学习上 越来越有劲头了</div>
+    <div class="session-section"><strong>核心知识点:</strong> <span class="tag">详见反馈</span></div>
+    <div class="session-section"><strong>练习题目:</strong> <div class="problem">课堂练习</div></div>
+    
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-date">2026-05-15</div>
+  <div class="timeline-content">
+    <div class="session-header">
+      <span class="session-score">评分: 69</span>
+      <span class="session-problems">题目: 10道</span>
+    </div>
+    <div class="session-perf">认真听讲，本堂课任务 【2】题，其中第⼀道题考验基本语法，第⼆道题为竞赛拿奖题⽬难度，需 要的时间稍久⼀点，课上的听课状态很好，具体掌握程度，需要看下节课的做题情况，第⼀道题完成 的⽐较不错，第⼆道题还差⼀点点，因时间原因没有⽴即完成，需要下节课完成，基本的思路和⽅法 已经掌握</div>
+    <div class="session-section"><strong>核心知识点:</strong> <span class="tag">详见反馈</span></div>
+    <div class="session-section"><strong>练习题目:</strong> <div class="problem">课堂练习</div></div>
+    
+  </div>
+</div>
+</div>
+<a href="../index.html" class="back-link">← 返回总览</a>
+</div>
+<script>
+const radarCtx = document.getElementById('radarChart').getContext('2d');
+new Chart(radarCtx, {
+  type: 'radar',
+  data: {
+    labels: ['逻辑思维','代码实现','问题分析','课堂专注','知识掌握','创新思维'],
+    datasets: [{
+      label: '能力评估',
+      data: [80,85,77,82,77,79],
+      backgroundColor: 'rgba(102, 126, 234, 0.2)',
+      borderColor: 'rgba(102, 126, 234, 1)',
+      pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(102, 126, 234, 1)'
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: { r: { suggestedMin: 50, suggestedMax: 100, ticks: { stepSize: 10 } } },
+    plugins: { legend: { display: false } }
+  }
+});
+
+const lineCtx = document.getElementById('lineChart').getContext('2d');
+new Chart(lineCtx, {
+  type: 'line',
+  data: {
+    labels: ['2026-03-20','2026-03-27','2026-04-03','2026-04-10','2026-04-17','2026-04-28','2026-05-15'],
+    datasets: [{
+      label: '课堂评分',
+      data: [82,72,90,80,77,72,69],
+      borderColor: 'rgba(118, 75, 162, 1)',
+      backgroundColor: 'rgba(118, 75, 162, 0.1)',
+      fill: true,
+      tension: 0.3,
+      pointRadius: 5,
+      pointBackgroundColor: 'rgba(118, 75, 162, 1)'
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: { y: { suggestedMin: 60, suggestedMax: 100 } },
+    plugins: { legend: { display: false } }
+  }
+});
+</script>
+</body>
+</html>

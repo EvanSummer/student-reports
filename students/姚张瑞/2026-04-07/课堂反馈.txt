@@ -1,0 +1,63 @@
+                             姚张瑞课堂表现
+
+
+                               2026 年 4 月 4 日
+
+
+
+1     课堂表现
+     上课认真听讲。目前代码水平已有提升，遇到问题会向老师求助，对问题有思考。课
+上对代码有很多的尝试，能理解C++语言代码内容，能完成课上的大部分代码，预计几次
+课后可以完全独立完成课上代码内容。
+
+
+2     课堂所学
+    1. 前缀和
+
+        • 构造，修改，查询
+        • 应用
+
+    2. 差分
+
+        • 构造，修改，查询
+        • 应用
+
+    3. 前缀和与差分的关系
+
+
+3     课上习题
+    1. USACO16JAN Subsequences Summing to Sevens S https://www.chuanshuo.com.
+      cn/d/FAST2026_A/p/96
+
+    2. NOIP 2018 提高组铺设道路 https://www.chuanshuo.com.cn/d/FAST2026_A/p/97
+
+    3. 求区间和 https://www.chuanshuo.com.cn/d/FAST2026_A/p/98
+
+
+
+                                      1
+                                图 1: 本节做题情况
+
+    4. USACO05JAN Moo Volume S https://www.chuanshuo.com.cn/d/FAST2026_A/p/
+      99
+
+    5. 语文成绩 https://www.chuanshuo.com.cn/d/FAST2026_A/p/100
+
+    6. 最大子段和 https://www.chuanshuo.com.cn/d/FAST2026_A/p/105
+
+    7. USACO1.2 挤牛奶 Milking Cows https://www.chuanshuo.com.cn/d/FAST2026_A/
+      p/106
+
+
+4     本节作业
+     每日两题
+
+
+5     本周竞赛
+     AtCoder Beginner Contest 452 - AtCoder https://atcoder.jp/contests/abc452
+
+
+
+
+                                        2
+

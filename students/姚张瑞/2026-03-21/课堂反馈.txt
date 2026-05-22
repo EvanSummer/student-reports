@@ -1,0 +1,76 @@
+                         姚张瑞课堂表现
+
+
+                           2026 年 3 月 21 日
+
+
+
+1     课堂表现
+     上课认真听讲。目前代码水平已有提升。课上有对 C++代码进行尝试，部分内容已经
+可以独立完成，其他内容可以在老师指导下完成。
+
+
+2     课堂所学
+    1. 数学归纳法（结构归纳法）
+
+    2. 递归（终止条件的设计，状态转移过程）
+
+    3. 汉诺塔
+
+    4. 斐波那契数列（递推公式）
+
+    5. 进制转换
+
+    6. 最大公约数（更相减损，辗转相除）
+
+    7. 快速排序
+
+
+3     课上习题
+    1. 斐波那契数列 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/d/FAST2026_
+      A/p/H0185
+
+    2. 汉诺塔 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/d/FAST2026_A/
+      p/H0960
+
+    3. 【模板】排序 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/d/FAST2026_
+      A/p/23
+
+                                   1
+                             图 1: 本节做题情况
+
+    4. 求出 e 的值 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/d/FAST2026_
+      A/p/42
+
+    5. 求 1+2+3+...+N 的值 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/
+      d/FAST2026_A/p/43
+
+    6. 阿克曼（Ackermann）函数 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.
+      cn/d/FAST2026_A/p/44
+
+    7. Hermite 多项式 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/d/FAST2026_
+      A/p/45
+
+    8. 求阶乘的和 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/d/FAST2026_
+      A/p/48
+
+    9. 进制转换 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/d/FAST2026_
+      A/p/49
+
+10. 最大公约数 - 题目详情 - 船说·信息学 https://www.chuanshuo.com.cn/d/FAST2026_
+      A/p/50
+
+
+4     本节作业
+     每日两题
+
+
+                                    2
+5   本周竞赛
+    AtCoder Beginner Contest 450 - AtCoder https://atcoder.jp/contests/abc450
+
+
+
+
+                                       3
+

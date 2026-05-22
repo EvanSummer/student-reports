@@ -1,0 +1,61 @@
+                           姚张瑞课堂表现
+
+
+                              2026 年 3 月 28 日
+
+
+
+1     课堂表现
+     上课认真听讲。目前代码水平已有提升。课上对代码有很多的尝试，能完成课上的大
+部分代码，但是最后的细节还需要一些帮助，预计几节课后会有提高。
+
+
+2     课堂所学
+    1. 归并排序
+
+        • 算法过程
+        • 求逆序对
+
+    2. 枚举
+
+        • 普通枚举
+        • 递归枚举
+        • 二进制枚举
+
+
+3     课上习题
+    1. 【模板】排序 https://www.chuanshuo.com.cn/d/FAST2026_A/p/23
+
+    2. 逆序对 https://www.chuanshuo.com.cn/d/FAST2026_A/p/24
+
+    3. NOIP 1997 普及组棋盘问题 https://www.chuanshuo.com.cn/d/FAST2026_A/p/76
+
+    4. NOIP 1998 普及组三连击 https://www.chuanshuo.com.cn/d/FAST2026_A/p/77
+
+    5. 递归实现指数型枚举 https://www.chuanshuo.com.cn/d/FAST2026_A/p/H0235
+
+
+
+                                      1
+                                图 1: 本节做题情况
+
+    6. 递归实现组合型枚举 https://www.chuanshuo.com.cn/d/FAST2026_A/p/H0236
+
+    7. 递归实现排列型枚举 https://www.chuanshuo.com.cn/d/FAST2026_A/p/H0237
+
+    8. COCI 2008/2009 #2 PERKET https://www.chuanshuo.com.cn/d/FAST2026_A/p/
+      81
+
+
+4     本节作业
+     每日两题
+
+
+5     本周竞赛
+     AtCoder Beginner Contest 451 - AtCoder https://atcoder.jp/contests/abc451
+
+
+
+
+                                        2
+

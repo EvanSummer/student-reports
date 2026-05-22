@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>朱霖瀚 - 能力档案</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; margin: 0; padding: 20px; color: #333; }
+.container { max-width: 800px; margin: 0 auto; }
+.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 16px; margin-bottom: 24px; text-align: center; }
+.header h1 { margin: 0; font-size: 28px; }
+.header p { margin: 8px 0 0 0; opacity: 0.9; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat-box { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.stat-number { font-size: 32px; font-weight: bold; color: #667eea; }
+.stat-label { font-size: 14px; color: #888; margin-top: 4px; }
+.abilities { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 24px; }
+.abilities h2 { margin: 0 0 20px 0; font-size: 20px; color: #444; }
+.ability-item { margin-bottom: 20px; }
+.ability-info { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.ability-name { font-weight: 500; color: #555; }
+.ability-score { font-weight: bold; color: #667eea; }
+.ability-bar-bg { background: #eee; height: 12px; border-radius: 6px; overflow: hidden; }
+.ability-bar-fill { height: 100%; border-radius: 6px; transition: width 0.5s ease; }
+.knowledge { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.knowledge h2 { margin: 0 0 16px 0; font-size: 20px; color: #444; }
+.know-tag { display: inline-block; background: #eef2ff; color: #667eea; padding: 6px 14px; border-radius: 16px; margin: 4px; font-size: 13px; }
+.back-link { display: inline-block; margin-top: 20px; color: #667eea; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+@media (max-width: 600px) { .stats { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🎯 朱霖瀚 能力档案</h1>
+<p>基于 6 节课的综合评估</p>
+</div>
+<div class="stats">
+<div class="stat-box">
+<div class="stat-number">6</div>
+<div class="stat-label">已上课程</div>
+</div>
+<div class="stat-box">
+<div class="stat-number">40</div>
+<div class="stat-label">完成题目</div>
+</div>
+<div class="stat-box">
+<div class="stat-number">77</div>
+<div class="stat-label">平均评分</div>
+</div>
+</div>
+<div class="abilities">
+<h2>📊 六维能力评估</h2>
+<div class="ability-item">
+  <div class="ability-info">
+    <span class="ability-name">逻辑思维</span>
+    <span class="ability-score">80分</span>
+  </div>
+  <div class="ability-bar-bg">
+    <div class="ability-bar-fill" style="width: 80%; background: #FF6B6B;"></div>
+  </div>
+</div>
+<div class="ability-item">
+  <div class="ability-info">
+    <span class="ability-name">代码实现</span>
+    <span class="ability-score">80分</span>
+  </div>
+  <div class="ability-bar-bg">
+    <div class="ability-bar-fill" style="width: 80%; background: #4ECDC4;"></div>
+  </div>
+</div>
+<div class="ability-item">
+  <div class="ability-info">
+    <span class="ability-name">问题分析</span>
+    <span class="ability-score">77分</span>
+  </div>
+  <div class="ability-bar-bg">
+    <div class="ability-bar-fill" style="width: 77%; background: #45B7D1;"></div>
+  </div>
+</div>
+<div class="ability-item">
+  <div class="ability-info">
+    <span class="ability-name">课堂专注</span>
+    <span class="ability-score">82分</span>
+  </div>
+  <div class="ability-bar-bg">
+    <div class="ability-bar-fill" style="width: 82%; background: #96CEB4;"></div>
+  </div>
+</div>
+<div class="ability-item">
+  <div class="ability-info">
+    <span class="ability-name">知识掌握</span>
+    <span class="ability-score">77分</span>
+  </div>
+  <div class="ability-bar-bg">
+    <div class="ability-bar-fill" style="width: 77%; background: #FFEAA7;"></div>
+  </div>
+</div>
+<div class="ability-item">
+  <div class="ability-info">
+    <span class="ability-name">创新思维</span>
+    <span class="ability-score">79分</span>
+  </div>
+  <div class="ability-bar-bg">
+    <div class="ability-bar-fill" style="width: 79%; background: #DDA0DD;"></div>
+  </div>
+</div>
+</div>
+<div class="knowledge">
+<h2>📚 知识标签</h2>
+<span style="color:#888;">暂无标签</span>
+</div>
+<a href="learning.html" class="back-link">← 返回学习档案</a>
+</div>
+</body>
+</html>

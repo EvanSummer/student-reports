@@ -1,0 +1,29 @@
+课上表现
+本节课课堂状态：认真听讲
+整体表现：此前有 Python 基础，目前 C++完整代码需在指导下完成。课上有对 C++代码进行
+尝试，但仍需老师帮助进行解决。
+
+课堂所学内容
+本节课主要学习：
+线性筛的进阶应用：筛积性函数——欧拉函数，莫比乌斯函数
+排序算法——选择排序，冒泡排序，插入排序，无监督插入排序
+
+课上讲解的习题：
+[SDOI2008]    仪 仗 队            -   题 目 详               情           -   船   说   ·   信   息   学
+https://www.chuanshuo.com.cn/d/FAST2026_A/p/5
+莫 比 乌 斯 函 数                   -    题 目 详 情                     -       船   说   ·   信   息   学
+https://www.chuanshuo.com.cn/d/FAST2026_A/p/19
+【 模 板 】 排 序                   -    题 目 详 情                     -       船   说   ·   信   息   学
+https://www.chuanshuo.com.cn/d/FAST2026_A/p/23
+逆序对 - 题目详情 - 船说·信息学                      https://www.chuanshuo.com.cn/d/FAST2026_A/p/24
+
+课后作业：
+船说信息学每日两题
+网页：https://www.chuanshuo.com.cn/d/FAST2026_A/homework/69aa86b83694d2d2085c9020
+题解视频：
+https://www.haizeix.com/goods/show/542?targetId=1376&preview=0
+
+本周竞赛：
+AtCoder Beginner Contest 449 - AtCoder    https://atcoder.jp/contests/abc449
+后续题解视频链接会发在群里
+
