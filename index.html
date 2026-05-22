@@ -6,117 +6,34 @@
   <title>学生学习档案中心</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: #f5f7fa;
-      color: #333;
-      padding: 40px 20px;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f5f7fa; color: #333; padding: 40px 20px; }
     .container { max-width: 900px; margin: 0 auto; }
     .header { text-align: center; margin-bottom: 40px; }
     .header h1 { font-size: 32px; color: #2c3e50; margin-bottom: 8px; }
     .header .subtitle { color: #7f8c8d; font-size: 15px; }
-    .global-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 16px;
-      margin-bottom: 36px;
-    }
-    .stat-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 20px;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(102,126,234,0.3);
-    }
+    .global-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 36px; }
+    .stat-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 14px; text-align: center; box-shadow: 0 4px 15px rgba(102,126,234,0.3); }
     .stat-card .value { font-size: 28px; font-weight: bold; }
     .stat-card .label { font-size: 13px; opacity: 0.9; margin-top: 4px; }
-    .student-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-    }
-    .student-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .student-name {
-      font-size: 22px;
-      font-weight: 700;
-      color: #2c3e50;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .student-name .dot {
-      width: 10px;
-      height: 10px;
-      background: #27ae60;
-      border-radius: 50%;
-    }
-    .student-badge {
-      font-size: 13px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: 600;
-    }
+    .student-card { background: #fff; border-radius: 18px; padding: 28px; margin-bottom: 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .student-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #f0f0f0; }
+    .student-name { font-size: 22px; font-weight: 700; color: #2c3e50; display: flex; align-items: center; gap: 10px; }
+    .student-name .dot { width: 10px; height: 10px; background: #27ae60; border-radius: 50%; }
+    .student-badge { font-size: 13px; padding: 4px 12px; border-radius: 20px; font-weight: 600; }
     .badge-top { background: #fff3e0; color: #e65100; }
     .badge-star { background: #e8f5e9; color: #2e7d32; }
-    .mini-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .mini-stat {
-      text-align: center;
-      padding: 12px;
-      background: #f8f9fa;
-      border-radius: 10px;
-    }
+    .badge-adjust { background: #e3f2fd; color: #1565c0; }
+    .badge-attention { background: #ffebee; color: #c62828; }
+    .mini-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+    .mini-stat { text-align: center; padding: 12px; background: #f8f9fa; border-radius: 10px; }
     .mini-stat .num { font-size: 20px; font-weight: bold; color: #667eea; }
     .mini-stat .txt { font-size: 12px; color: #7f8c8d; margin-top: 2px; }
-    .link-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-    }
-    .link-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 10px;
-      background: #f8f9fa;
-      text-decoration: none;
-      color: #2c3e50;
-      font-size: 14px;
-      transition: all 0.2s;
-      border: 1px solid #e9ecef;
-    }
-    .link-item:hover {
-      background: #e8f4fd;
-      border-color: #3498db;
-      transform: translateY(-1px);
-    }
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .link-item { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 10px; background: #f8f9fa; text-decoration: none; color: #2c3e50; font-size: 14px; transition: all 0.2s; border: 1px solid #e9ecef; }
+    .link-item:hover { background: #e8f4fd; border-color: #3498db; transform: translateY(-1px); }
     .link-item .icon { font-size: 18px; }
-    .footer {
-      text-align: center;
-      color: #95a5a6;
-      font-size: 12px;
-      margin-top: 40px;
-    }
-    @media (max-width: 600px) {
-      .mini-stats { grid-template-columns: repeat(2, 1fr); }
-      .header h1 { font-size: 24px; }
-    }
+    .footer { text-align: center; color: #95a5a6; font-size: 12px; margin-top: 40px; }
+    @media (max-width: 600px) { .mini-stats { grid-template-columns: repeat(2, 1fr); } .header h1 { font-size: 24px; } }
   </style>
 </head>
 <body>
@@ -127,22 +44,10 @@
     </div>
 
     <div class="global-stats">
-      <div class="stat-card">
-        <div class="value">2</div>
-        <div class="label">在档学生</div>
-      </div>
-      <div class="stat-card">
-        <div class="value">11</div>
-        <div class="label">累计课程</div>
-      </div>
-      <div class="stat-card">
-        <div class="value">⭐⭐⭐⭐⭐</div>
-        <div class="label">最高评级</div>
-      </div>
-      <div class="stat-card">
-        <div class="value">100%</div>
-        <div class="label">数据完整度</div>
-      </div>
+      <div class="stat-card"><div class="value">4</div><div class="label">在档学生</div></div>
+      <div class="stat-card"><div class="value">19</div><div class="label">累计课程</div></div>
+      <div class="stat-card"><div class="value">⭐⭐⭐⭐⭐</div><div class="label">最高评级</div></div>
+      <div class="stat-card"><div class="value">100%</div><div class="label">数据完整度</div></div>
     </div>
 
     <div class="student-card">
@@ -151,30 +56,14 @@
         <span class="student-badge badge-top">第一梯队</span>
       </div>
       <div class="mini-stats">
-        <div class="mini-stat">
-          <div class="num">6</div>
-          <div class="txt">课程次数</div>
-        </div>
-        <div class="mini-stat">
-          <div class="num">17</div>
-          <div class="txt">完成题目</div>
-        </div>
-        <div class="mini-stat">
-          <div class="num">90</div>
-          <div class="txt">综合评分</div>
-        </div>
-        <div class="mini-stat">
-          <div class="num">📈</div>
-          <div class="txt">稳步上升</div>
-        </div>
+        <div class="mini-stat"><div class="num">6</div><div class="txt">课程次数</div></div>
+        <div class="mini-stat"><div class="num">17</div><div class="txt">完成题目</div></div>
+        <div class="mini-stat"><div class="num">90</div><div class="txt">综合评分</div></div>
+        <div class="mini-stat"><div class="num">📈</div><div class="txt">稳步上升</div></div>
       </div>
       <div class="link-grid">
-        <a href="jiangxinyi_learning.html" class="link-item">
-          <span class="icon">📈</span>学习曲线
-        </a>
-        <a href="jiangxinyi_ability.html" class="link-item">
-          <span class="icon">📊</span>能力曲线
-        </a>
+        <a href="jiangxinyi_learning.html" class="link-item"><span class="icon">📈</span>学习曲线</a>
+        <a href="jiangxinyi_ability.html" class="link-item"><span class="icon">📊</span>能力曲线</a>
       </div>
     </div>
 
@@ -184,34 +73,52 @@
         <span class="student-badge badge-star">⭐ 持续进步</span>
       </div>
       <div class="mini-stats">
-        <div class="mini-stat">
-          <div class="num">5</div>
-          <div class="txt">课程次数</div>
-        </div>
-        <div class="mini-stat">
-          <div class="num">29+</div>
-          <div class="txt">完成题目</div>
-        </div>
-        <div class="mini-stat">
-          <div class="num">87</div>
-          <div class="txt">综合评分</div>
-        </div>
-        <div class="mini-stat">
-          <div class="num">📈</div>
-          <div class="txt">持续进步</div>
-        </div>
+        <div class="mini-stat"><div class="num">5</div><div class="txt">课程次数</div></div>
+        <div class="mini-stat"><div class="num">29+</div><div class="txt">完成题目</div></div>
+        <div class="mini-stat"><div class="num">87</div><div class="txt">综合评分</div></div>
+        <div class="mini-stat"><div class="num">📈</div><div class="txt">持续进步</div></div>
       </div>
       <div class="link-grid">
-        <a href="chenzhiyuan_learning.html" class="link-item">
-          <span class="icon">📈</span>学习曲线
-        </a>
-        <a href="chenzhiyuan_ability.html" class="link-item">
-          <span class="icon">📊</span>能力曲线
-        </a>
+        <a href="chenzhiyuan_learning.html" class="link-item"><span class="icon">📈</span>学习曲线</a>
+        <a href="chenzhiyuan_ability.html" class="link-item"><span class="icon">📊</span>能力曲线</a>
       </div>
     </div>
 
-    <p class="footer">Powered by PicoClaw · 数据更新于 2026年5月21日</p>
+    <div class="student-card">
+      <div class="student-header">
+        <div class="student-name"><span class="dot"></span>裕丰</div>
+        <span class="student-badge badge-adjust">📐 方法调整中</span>
+      </div>
+      <div class="mini-stats">
+        <div class="mini-stat"><div class="num">6</div><div class="txt">课程次数</div></div>
+        <div class="mini-stat"><div class="num">~54</div><div class="txt">完成题目</div></div>
+        <div class="mini-stat"><div class="num">71</div><div class="txt">综合评分</div></div>
+        <div class="mini-stat"><div class="num">📊</div><div class="txt">波动中</div></div>
+      </div>
+      <div class="link-grid">
+        <a href="yufeng_learning.html" class="link-item"><span class="icon">📈</span>学习曲线</a>
+        <a href="yufeng_ability.html" class="link-item"><span class="icon">📊</span>能力曲线</a>
+      </div>
+    </div>
+
+    <div class="student-card">
+      <div class="student-header">
+        <div class="student-name"><span class="dot"></span>裕康</div>
+        <span class="student-badge badge-attention">⚠️ 需关注</span>
+      </div>
+      <div class="mini-stats">
+        <div class="mini-stat"><div class="num">2</div><div class="txt">课程次数</div></div>
+        <div class="mini-stat"><div class="num">~22</div><div class="txt">完成题目</div></div>
+        <div class="mini-stat"><div class="num">70</div><div class="txt">综合评分</div></div>
+        <div class="mini-stat"><div class="num">📈</div><div class="txt">缓慢进步</div></div>
+      </div>
+      <div class="link-grid">
+        <a href="yukang_learning.html" class="link-item"><span class="icon">📈</span>学习曲线</a>
+        <a href="yukang_ability.html" class="link-item"><span class="icon">📊</span>能力曲线</a>
+      </div>
+    </div>
+
+    <p class="footer">Powered by PicoClaw · 数据更新于 2026年5月22日</p>
   </div>
 </body>
 </html>

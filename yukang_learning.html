@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>裕康 - 学习曲线</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); min-height: 100vh; padding: 20px; }
+.container { max-width: 900px; margin: 0 auto; }
+.header { text-align: center; color: white; margin-bottom: 30px; }
+.header h1 { font-size: 2.5em; margin-bottom: 10px; }
+.card { background: white; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
+.card-title { font-size: 1.3em; color: #333; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; }
+.chart-container { position: relative; height: 350px; margin: 20px 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+.stat-item { background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); color: white; padding: 16px; border-radius: 12px; text-align: center; }
+.stat-value { font-size: 2em; font-weight: bold; }
+.stat-label { font-size: 0.9em; opacity: 0.9; margin-top: 4px; }
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #1abc9c 0%, #16a085 100%); }
+.timeline-item { position: relative; margin-bottom: 20px; padding: 16px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #1abc9c; }
+.timeline-item::before { content: ''; position: absolute; left: -26px; top: 20px; width: 12px; height: 12px; background: #1abc9c; border-radius: 50%; border: 2px solid white; }
+.timeline-date { font-size: 0.85em; color: #1abc9c; font-weight: bold; margin-bottom: 6px; }
+.timeline-content h4 { color: #333; margin-bottom: 8px; }
+.timeline-content ul { list-style: none; padding-left: 0; }
+.timeline-content li { padding: 4px 0; color: #555; font-size: 0.95em; }
+.timeline-content li::before { content: '✓ '; color: #28a745; font-weight: bold; }
+.badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: bold; }
+.badge-progress { background: #fff3e0; color: #e65100; }
+.badge-attention { background: #ffebee; color: #c62828; }
+.footer { text-align: center; color: white; opacity: 0.7; margin-top: 30px; font-size: 0.9em; }
+.progress-bar { width: 100%; height: 8px; background: #e9ecef; border-radius: 4px; overflow: hidden; margin-top: 8px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #1abc9c 0%, #16a085 100%); border-radius: 4px; }
+@media (max-width: 600px) { .header h1 { font-size: 1.8em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><h1>📈 裕康的学习曲线</h1><div style="font-size:1.1em;opacity:0.9">编程能力追踪 · 2026年3月 - 4月</div></div>
+
+<div class="card"><div class="card-title">🎯 综合能力雷达图</div><div class="chart-container"><canvas id="radarChart"></canvas></div></div>
+<div class="card"><div class="card-title">📊 能力成长趋势</div><div class="chart-container"><canvas id="lineChart"></canvas></div></div>
+
+<div class="card">
+<div class="card-title">🏆 关键指标</div>
+<div class="stats-grid">
+<div class="stat-item"><div class="stat-value">2</div><div class="stat-label">课程次数</div></div>
+<div class="stat-item"><div class="stat-value">~22</div><div class="stat-label">完成题目</div></div>
+<div class="stat-item"><div class="stat-value">⭐⭐⭐</div><div class="stat-label">综合评级</div></div>
+<div class="stat-item"><div class="stat-value">3rd</div><div class="stat-label">班级梯队</div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">📝 学习历程</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-date">2026年3月12日 · 第1次课</div>
+<div class="timeline-content">
+<span class="badge badge-progress">基础巩固</span>
+<h4 style="margin-top:10px">学习内容</h4>
+<ul><li>数据类型复习（int, long, char, float, double）</li><li>printf格式化输出函数的使用</li><li>整除与取模运算分离整数数位</li></ul>
+<h4 style="margin-top:10px">完成题目</h4>
+<ul><li>H0087 矩形的面积与周长</li><li>P1007 各种水果</li><li>H开头系列基础题目（共14道）</li><li>整数数位分离相关题目</li></ul>
+<p style="margin-top:10px; color:#1abc9c; font-weight:bold;">💬 教师评语：课上听讲比较认真，但不爱思考，需要一定时间引导才能编写代码，细节性知识点忘记比较快</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2026年4月16日 · 第2次课</div>
+<div class="timeline-content">
+<span class="badge badge-attention">需关注</span>
+<h4 style="margin-top:10px">学习内容</h4>
+<ul><li>while与do-while循环语法与执行逻辑</li><li>continue和break的作用范围</li><li>嵌套循环中内外层变量的交互与重置</li><li>手动模拟执行训练</li></ul>
+<h4 style="margin-top:10px">完成题目</h4>
+<ul><li>课上通过6道题目</li><li>循环结构基础练习题</li><li>嵌套循环手动模拟执行题</li></ul>
+<p style="margin-top:10px; color:#1abc9c; font-weight:bold;">💬 教师评语：与裕丰分开坐后只能靠自己，做题时趁老师不注意偷玩游戏已教育。有进步但太依赖老师，已采取分开坐措施</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">📈 技能掌握度</div>
+<div style="margin-top:16px">
+<div style="margin-bottom:16px"><div style="display:flex; justify-content:space-between; margin-bottom:4px"><span>逻辑思维</span><span style="color:#1abc9c; font-weight:bold">70%</span></div><div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div></div>
+<div style="margin-bottom:16px"><div style="display:flex; justify-content:space-between; margin-bottom:4px"><span>编程基础</span><span style="color:#1abc9c; font-weight:bold">68%</span></div><div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div></div>
+<div style="margin-bottom:16px"><div style="display:flex; justify-content:space-between; margin-bottom:4px"><span>动手能力</span><span style="color:#1abc9c; font-weight:bold">72%</span></div><div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div></div>
+<div style="margin-bottom:16px"><div style="display:flex; justify-content:space-between; margin-bottom:4px"><span>问题解决</span><span style="color:#1abc9c; font-weight:bold">68%</span></div><div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div></div>
+<div style="margin-bottom:16px"><div style="display:flex; justify-content:space-between; margin-bottom:4px"><span>课堂专注</span><span style="color:#1abc9c; font-weight:bold">72%</span></div><div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div></div>
+</div>
+</div>
+
+<div class="footer"><p>生成时间：2026年5月22日 | 数据来源于课堂反馈记录</p></div>
+</div>
+
+<script>
+new Chart(document.getElementById('radarChart').getContext('2d'), {
+type: 'radar',
+data: {
+labels: ['逻辑思维', '编程基础', '动手能力', '问题解决', '课堂专注', '沟通表达'],
+datasets: [
+{ label: '3月12日', data: [68,65,65,62,75,68], borderColor: 'rgba(26,188,156,0.5)', backgroundColor: 'rgba(26,188,156,0.1)', pointBackgroundColor: 'rgba(26,188,156,1)', borderWidth: 2 },
+{ label: '4月16日', data: [70,68,72,68,72,70], borderColor: 'rgba(22,160,133,0.9)', backgroundColor: 'rgba(22,160,133,0.15)', pointBackgroundColor: 'rgba(22,160,133,1)', borderWidth: 3 }
+]},
+options: { responsive: true, maintainAspectRatio: false, scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } } }, plugins: { legend: { position: 'bottom' } } }
+});
+new Chart(document.getElementById('lineChart').getContext('2d'), {
+type: 'line',
+data: {
+labels: ['3月12日', '4月16日'],
+datasets: [
+{ label: '综合能力评分', data: [67,70], borderColor: 'rgba(26,188,156,1)', backgroundColor: 'rgba(26,188,156,0.1)', borderWidth: 3, pointRadius: 6, pointBackgroundColor: 'rgba(26,188,156,1)', fill: true, tension: 0.4 },
+{ label: '完成题目数', data: [16,6], borderColor: 'rgba(22,160,133,1)', backgroundColor: 'rgba(22,160,133,0.1)', borderWidth: 3, pointRadius: 6, pointBackgroundColor: 'rgba(22,160,133,1)', fill: true, tension: 0.4, yAxisID: 'y1' }
+]},
+options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: '能力评分' } }, y1: { type: 'linear', display: true, position: 'right', beginAtZero: true, max: 20, title: { display: true, text: '题目数量' } } }, plugins: { legend: { position: 'bottom' } } }
+});
+</script>
+</body>
+</html>
