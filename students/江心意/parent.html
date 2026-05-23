@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>江心意的成长报告 - 给家长的信</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", sans-serif; background: #f8f9fa; margin: 0; padding: 0; color: #333; }
+.container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+/* 顶部英雄区 */
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 30px; border-radius: 20px; text-align: center; margin-bottom: 24px; position: relative; overflow: hidden; }
+.hero::before { content: "✨"; position: absolute; top: 20px; left: 30px; font-size: 40px; opacity: 0.3; }
+.hero::after { content: "🌟"; position: absolute; bottom: 20px; right: 30px; font-size: 40px; opacity: 0.3; }
+.hero h1 { margin: 0; font-size: 28px; font-weight: 600; }
+.hero .subtitle { margin: 10px 0 0 0; opacity: 0.95; font-size: 16px; }
+.hero .summary { margin-top: 24px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.hero-stat { text-align: center; }
+.hero-stat-num { font-size: 36px; font-weight: bold; }
+.hero-stat-label { font-size: 14px; opacity: 0.9; margin-top: 4px; }
+
+/* 模块通用 */
+.section { background: white; padding: 28px; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.section h2 { margin: 0 0 20px 0; font-size: 20px; color: #444; display: flex; align-items: center; gap: 10px; }
+.section h2 .icon { font-size: 24px; }
+
+/* 成长看得见 */
+.growth-text { color: #555; line-height: 1.8; font-size: 15px; margin-bottom: 20px; }
+.growth-highlight { background: linear-gradient(120deg, #ffeaa7 0%, #ffeaa7 100%); background-repeat: no-repeat; background-size: 100% 40%; background-position: 0 88%; padding: 0 4px; font-weight: 600; }
+
+/* 成就卡片 */
+.achievements { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.ach-card { background: #f8f9fa; padding: 18px; border-radius: 12px; border-left: 4px solid; }
+.ach-card.unlocked { border-color: #27ae60; background: #f0fff4; }
+.ach-card.locked { border-color: #ddd; background: #f8f9fa; opacity: 0.6; }
+.ach-icon { font-size: 28px; margin-bottom: 8px; }
+.ach-title { font-weight: 600; color: #333; font-size: 15px; margin-bottom: 4px; }
+.ach-desc { font-size: 13px; color: #666; line-height: 1.5; }
+.ach-card.locked .ach-title, .ach-card.locked .ach-desc { color: #999; }
+
+/* 老师寄语 */
+.quotes { display: flex; flex-direction: column; gap: 16px; }
+.quote-card { background: #fffbeb; padding: 18px 20px; border-radius: 12px; border-left: 4px solid #f59e0b; position: relative; }
+.quote-card::before { content: '"'; position: absolute; top: 8px; left: 12px; font-size: 40px; color: #f59e0b; opacity: 0.3; font-family: Georgia, serif; }
+.quote-text { color: #92400e; font-size: 15px; line-height: 1.7; padding-left: 20px; position: relative; z-index: 1; }
+.quote-date { text-align: right; color: #b45309; font-size: 13px; margin-top: 10px; font-style: italic; }
+
+/* 图表 */
+.chart-container { position: relative; height: 260px; margin: 16px 0; }
+
+/* 时间线 */
+.timeline { display: flex; flex-direction: column; gap: 16px; }
+.timeline-item { display: flex; gap: 16px; align-items: flex-start; }
+.timeline-dot { width: 12px; height: 12px; background: #667eea; border-radius: 50%; margin-top: 6px; flex-shrink: 0; border: 3px solid #eef2ff; }
+.timeline-content { flex: 1; background: #f8f9fa; padding: 14px 18px; border-radius: 12px; }
+.timeline-date { font-size: 13px; color: #667eea; font-weight: 600; margin-bottom: 4px; }
+.timeline-text { font-size: 14px; color: #555; line-height: 1.6; }
+
+/* 下一阶段 */
+.next-steps { background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); padding: 20px; border-radius: 12px; }
+.next-steps h3 { margin: 0 0 12px 0; color: #444; font-size: 16px; }
+.next-steps ul { margin: 0; padding-left: 20px; color: #555; line-height: 1.8; font-size: 14px; }
+.next-steps .encourage { margin-top: 16px; padding: 14px; background: white; border-radius: 10px; text-align: center; color: #667eea; font-weight: 500; font-size: 15px; }
+
+/* 底部导航 */
+.nav-bar { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.nav-bar a { flex: 1; min-width: 140px; text-align: center; padding: 12px 20px; border-radius: 12px; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.nav-bar a.primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+.nav-bar a.secondary { background: white; color: #667eea; border: 1px solid #e0e0e0; }
+.nav-bar a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+.footer { text-align: center; margin-top: 30px; padding: 20px; color: #aaa; font-size: 12px; }
+
+@media (max-width: 600px) {
+  .achievements { grid-template-columns: 1fr; }
+  .hero .summary { gap: 24px; }
+  .nav-bar a { flex: 1 1 100%; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- 英雄区 -->
+<div class="hero">
+  <h1>🌈 江心意的编程成长报告</h1>
+  <p class="subtitle">在代码的世界里，TA 正在闪闪发光</p>
+  <div class="summary">
+    <div class="hero-stat">
+      <div class="hero-stat-num">8</div>
+      <div class="hero-stat-label">节课的坚持</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">18</div>
+      <div class="hero-stat-label">道题的突破</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">10+</div>
+      <div class="hero-stat-label">个知识掌握</div>
+    </div>
+  </div>
+</div>
+
+<!-- 成长看得见 -->
+<div class="section">
+  <h2><span class="icon">📈</span> 成长看得见</h2>
+  <div class="growth-text">
+    江心意从 3 月初第一次接触 C++ 函数，到 5 月已经能够<span class="growth-highlight">独立完成数字拼接、回文数判断等进阶题目</span>。在已经过去的 8 节课中，TA 的课堂评分稳定在 <strong>80 分</strong>，最高达到 <strong>90 分</strong>，始终位于班级<strong>第一梯队</strong>。
+  </div>
+  <div class="chart-container">
+    <canvas id="scoreChart"></canvas>
+  </div>
+  <div class="growth-text" style="margin-top: 16px;">
+    老师特别提到："<em>江心意的理解能力非常强，能够领先所有同学很多题目完成进度。</em>" 这不仅是速度的体现，更是<strong>扎实基础和高效思维</strong>的证明。
+  </div>
+</div>
+
+<!-- 能力雷达 -->
+<div class="section">
+  <h2><span class="icon">🎯</span> 六维能力画像</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
+    <div class="chart-container" style="height: 280px;">
+      <canvas id="radarChart"></canvas>
+    </div>
+    <div style="font-size: 14px; color: #555; line-height: 1.8;">
+      <p><strong>🧠 逻辑思维（80分）：</strong>解题思路清晰，能快速分析题目规律</p>
+      <p><strong>⌨️ 代码实现（80分）：</strong>把想法变成代码的速度快，结构清晰</p>
+      <p><strong>🔍 问题分析（80分）：</strong>出错后能独立定位并修复</p>
+      <p><strong>🎯 课堂专注（86分）：</strong>全程投入，单位时间产出高</p>
+      <p><strong>📚 知识掌握（80分）：</strong>语法扎实，新旧知识融会贯通</p>
+      <p><strong>💡 创新思维（82分）：</strong>愿意尝试多种解法，吸收新思路</p>
+    </div>
+  </div>
+</div>
+
+<!-- 知识成就 -->
+<div class="section">
+  <h2><span class="icon">🏆</span> 已解锁的知识成就</h2>
+  <div class="achievements">
+    <div class="ach-card unlocked">
+      <div class="ach-icon">🧩</div>
+      <div class="ach-title">函数小达人</div>
+      <div class="ach-desc">掌握函数定义、参数传递和函数封装，能独立设计函数结构</div>
+    </div>
+    <div class="ach-card unlocked">
+      <div class="ach-icon">🔄</div>
+      <div class="ach-title">循环高手</div>
+      <div class="ach-desc">熟练运用嵌套循环输出正方形、三角形、菱形等复杂图形</div>
+    </div>
+    <div class="ach-card unlocked">
+      <div class="ach-icon">🔢</div>
+      <div class="ach-title">数位处理专家</div>
+      <div class="ach-desc">精通取数位、倒序输出、数位和计算，能灵活运用模运算</div>
+    </div>
+    <div class="ach-card unlocked">
+      <div class="ach-icon">🎨</div>
+      <div class="ach-title">图形输出大师</div>
+      <div class="ach-desc">从实心图形到镂空图形，从矩阵到对角线，无所不包</div>
+    </div>
+    <div class="ach-card locked">
+      <div class="ach-icon">🔒</div>
+      <div class="ach-title">数组魔法师</div>
+      <div class="ach-desc">即将解锁：数组的定义、遍历和统计应用</div>
+    </div>
+    <div class="ach-card locked">
+      <div class="ach-icon">🔒</div>
+      <div class="ach-title">字符串能手</div>
+      <div class="ach-desc">即将解锁：字符串处理与字符数组操作</div>
+    </div>
+  </div>
+</div>
+
+<!-- 老师寄语 -->
+<div class="section">
+  <h2><span class="icon">💌</span> 老师的暖心评语</h2>
+  <div class="quotes">
+    <div class="quote-card">
+      <div class="quote-text">江心意表现优秀，完成进度明显快于班级大多数同学。能够吸收额外讲解内容，并将新思路快速实现为代码，学习能力突出。</div>
+      <div class="quote-date">—— 2026年4月29日</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">表现优秀，仍处于班级第一梯队。能够在完成任务的同时吸收新思路，并学习其他实现方式。属于班级顶尖同学。理解能力非常强。</div>
+      <div class="quote-date">—— 2026年4月21日</div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">整体表现稳定，做题速度依然位于班级第一梯队。能够快速完成任务，思维清晰，代码实现效率高。属于班级优秀梯队同学。</div>
+      <div class="quote-date">—— 2026年4月11日</div>
+    </div>
+  </div>
+</div>
+
+<!-- 课堂高光时刻 -->
+<div class="section">
+  <h2><span class="icon">✨</span> 课堂高光时刻</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">2026年3月7日 · 第1课</div>
+        <div class="timeline-text">第一次接触函数概念，就能提出自己的疑问，思维活跃度让老师印象深刻。</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">2026年4月4日 · 第4课</div>
+        <div class="timeline-text">挑战镂空图形，快速理解边界判断逻辑，代码结构清晰，获得<strong>90分</strong>的课堂最高分！</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">2026年4月21日 · 第6课</div>
+        <div class="timeline-text">数位处理专题课，<strong>领先所有同学完成大量题目</strong>，理解能力得到老师特别表扬。</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-date">2026年5月16日 · 第8课</div>
+        <div class="timeline-text">主动认真听讲难点内容，快速完成代码实现，继续保持班级前列水平。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 下一阶段 -->
+<div class="section">
+  <h2><span class="icon">🚀</span> 下一阶段展望</h2>
+  <div class="next-steps">
+    <h3>即将学习的新知识：</h3>
+    <ul>
+      <li>📦 <strong>数组进阶</strong>：一维数组、二维数组的定义与应用</li>
+      <li>🔤 <strong>字符串处理</strong>：字符数组、字符串操作函数</li>
+      <li>📊 <strong>排序与查找</strong>：基础排序算法的代码实现</li>
+    </ul>
+    <div class="encourage">
+      🌟 "江心意已经具备了扎实的基础，接下来的进阶内容将让 TA 的能力再上一个台阶！"
+    </div>
+  </div>
+</div>
+
+<!-- 导航 -->
+<div class="nav-bar">
+  <a href="learning.html" class="secondary">📊 详细学习档案</a>
+  <a href="ability.html" class="secondary">🎯 能力分析报告</a>
+  <a href="portfolio.html" class="secondary">🎮 学生成就中心</a>
+  <a href="../../index.html" class="primary">← 返回总览</a>
+</div>
+
+<div class="footer">
+  报告生成时间：2026-05-23 | 基于课堂反馈自动生成<br>
+  如需了解更多详情，请随时与老师沟通 💬
+</div>
+
+</div>
+
+<script>
+// 评分趋势图
+const scoreCtx = document.getElementById('scoreChart').getContext('2d');
+new Chart(scoreCtx, {
+  type: 'line',
+  data: {
+    labels: ['第1课\n3月7日', '第2课\n3月21日', '第3课\n3月28日', '第4课\n4月4日', '第5课\n4月11日', '第6课\n4月21日', '第7课\n4月29日', '第8课\n5月16日'],
+    datasets: [{
+      label: '课堂评分',
+      data: [85, 77, 72, 90, 80, 80, 80, 80],
+      borderColor: '#667eea',
+      backgroundColor: 'rgba(102, 126, 234, 0.1)',
+      fill: true,
+      tension: 0.3,
+      pointRadius: 6,
+      pointBackgroundColor: '#667eea',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) { return '评分: ' + ctx.parsed.y + '分'; }
+        }
+      }
+    },
+    scales: {
+      y: { min: 60, max: 100, ticks: { stepSize: 10 }, grid: { color: '#f0f0f0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// 雷达图
+const radarCtx = document.getElementById('radarChart').getContext('2d');
+new Chart(radarCtx, {
+  type: 'radar',
+  data: {
+    labels: ['逻辑思维', '代码实现', '问题分析', '课堂专注', '知识掌握', '创新思维'],
+    datasets: [{
+      label: '江心意',
+      data: [80, 80, 80, 86, 80, 82],
+      backgroundColor: 'rgba(102, 126, 234, 0.2)',
+      borderColor: 'rgba(102, 126, 234, 1)',
+      pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(102, 126, 234, 1)',
+      pointRadius: 5
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      r: {
+        suggestedMin: 50,
+        suggestedMax: 100,
+        ticks: { stepSize: 10, backdropColor: 'transparent' },
+        grid: { color: '#e0e0e0' },
+        angleLines: { color: '#e0e0e0' },
+        pointLabels: { font: { size: 13 } }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
