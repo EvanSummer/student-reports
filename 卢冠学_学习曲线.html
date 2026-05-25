@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卢冠学 - 学习曲线</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: #f5f7fa; color: #333; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { text-align: center; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #666; margin-bottom: 30px; font-size: 14px; }
+  .card { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+  .stat-row { display: flex; justify-content: space-around; text-align: center; margin: 20px 0; }
+  .stat-item h3 { margin: 0; font-size: 28px; color: #2563eb; }
+  .stat-item p { margin: 4px 0 0; color: #666; font-size: 13px; }
+  .alert { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; border-radius: 6px; margin: 16px 0; }
+  .alert-danger { background: #fee2e2; border-left-color: #ef4444; }
+  .alert-success { background: #d1fae5; border-left-color: #10b981; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 10px 12px; text-align: center; border-bottom: 1px solid #e5e7eb; }
+  th { background: #f9fafb; font-weight: 600; }
+  tr:hover { background: #f9fafb; }
+  .trend-up { color: #10b981; }
+  .trend-down { color: #ef4444; }
+  .trend-flat { color: #6b7280; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .tag-peak { background: #d1fae5; color: #065f46; }
+  .tag-warn { background: #fee2e2; color: #991b1b; }
+  .tag-ok { background: #e0e7ff; color: #3730a3; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📈 卢冠学 — 学习曲线</h1>
+  <p class="subtitle">数据周期: 2025.03.07 ~ 2025.04.29 | 共8节课 | 周六 12:45 班</p>
+
+  <div class="card">
+    <div class="stat-row">
+      <div class="stat-item"><h3>79</h3><p>最新综合评分</p></div>
+      <div class="stat-item"><h3>84</h3><p>历史最高分 (04-04)</p></div>
+      <div class="stat-item"><h3>78</h3><p>历史最低分 (03-21)</p></div>
+      <div class="stat-item"><h3>-5</h3><p>近4周变化</p></div>
+    </div>
+  </div>
+
+  <div class="alert alert-danger">
+    <strong>⚠️ 重点关注</strong>: 专注力从85分(04-04)下降至72分(04-29)，0429出现与同桌打闹情况，需课堂纪律干预。
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>综合能力趋势</h3>
+      <canvas id="overallChart" height="220"></canvas>
+    </div>
+    <div class="card">
+      <h3>六维能力雷达图（最新）</h3>
+      <canvas id="radarChart" height="220"></canvas>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>各维度趋势对比</h3>
+    <canvas id="dimensionsChart" height="280"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>📋 逐课详细数据</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>日期</th><th>课程主题</th><th>总分</th><th>逻辑</th><th>编程</th><th>创造</th>
+          <th>专注</th><th>沟通</th><th>解决</th><th>标记</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>03-07</td><td>二维数组基础</td><td>80</td><td>82</td><td>78</td><td>75</td><td>85</td><td>80</td><td>78</td><td><span class="tag tag-ok">起步</span></td></tr>
+        <tr><td>03-14</td><td>矩阵遍历</td><td>81</td><td>83</td><td>80</td><td>76</td><td>85</td><td>80</td><td>79</td><td><span class="tag tag-ok">稳定</span></td></tr>
+        <tr><td>03-21</td><td>分支+作用域</td><td>78</td><td>80</td><td>78</td><td>75</td><td>83</td><td>78</td><td>75</td><td><span class="tag tag-ok">挑战</span></td></tr>
+        <tr><td>03-28</td><td>函数定义调用</td><td>82</td><td>85</td><td>82</td><td>80</td><td>85</td><td>82</td><td>80</td><td><span class="tag tag-ok">突破</span></td></tr>
+        <tr><td>04-04</td><td>成绩评级+图形</td><td><strong>84</strong></td><td>86</td><td>83</td><td>82</td><td>85</td><td>83</td><td>82</td><td><span class="tag tag-peak">⭐ 峰值</span></td></tr>
+        <tr><td>04-11</td><td>嵌套循环</td><td>82</td><td>85</td><td>82</td><td>80</td><td>83</td><td>82</td><td>80</td><td><span class="tag tag-ok">稳定</span></td></tr>
+        <tr><td>04-18</td><td>菱形+三角形</td><td>80</td><td>84</td><td>81</td><td>79</td><td>78</td><td>80</td><td>79</td><td><span class="tag tag-warn">↓ 专注</span></td></tr>
+        <tr style="background:#fff7ed;"><td><strong>04-29</strong></td><td><strong>图形输出进阶</strong></td><td><strong>79</strong></td><td>85</td><td>82</td><td>80</td><td class="trend-down"><strong>72</strong></td><td>80</td><td>82</td><td><span class="tag tag-warn">⚠️ 纪律</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>📈 上升维度</h3>
+      <p class="trend-up" style="font-size:18px;font-weight:600;">逻辑思维 +3pts</p>
+      <p>从82(0307) → 85(0429)，图形输出阶段框架理解能力强</p>
+      <hr style="border:0;border-top:1px solid #e5e7eb;margin:12px 0;">
+      <p class="trend-up" style="font-size:18px;font-weight:600;">编程能力 +4pts</p>
+      <p>从78(0307) → 82(0429)，代码实现稳步提升</p>
+      <hr style="border:0;border-top:1px solid #e5e7eb;margin:12px 0;">
+      <p class="trend-up" style="font-size:18px;font-weight:600;">问题解决 +4pts</p>
+      <p>从78(0307) → 82(0429)，经提示能独立完成</p>
+    </div>
+    <div class="card">
+      <h3>📉 下降维度</h3>
+      <p class="trend-down" style="font-size:18px;font-weight:600;">专注力 -13pts</p>
+      <p>从85(0404峰值) → 72(0429)，出现小动作和打闹</p>
+      <hr style="border:0;border-top:1px solid #e5e7eb;margin:12px 0;">
+      <p class="trend-down" style="font-size:18px;font-weight:600;">创造力 -2pts</p>
+      <p>从82(0404) → 80(0429)，略有回落</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🎯 教师行动建议</h3>
+    <div class="alert">
+      <strong>下节课重点</strong>: 课前明确纪律要求，必要时调整座位；增加限时编程挑战培养专注度。
+    </div>
+    <ol>
+      <li><strong>课堂纪律干预</strong>: 0429出现打闹，下节课需重申纪律，将卢冠学与同桌分开就坐</li>
+      <li><strong>专注力训练</strong>: 设置15分钟无干扰编码时间，培养沉浸式编程习惯</li>
+      <li><strong>细节检查清单</strong>: 要求提交前自检：空格→边界→大括号→变量名</li>
+      <li><strong>独立解题挑战</strong>: 减少即时提示，给予5分钟独立思考时间</li>
+      <li><strong>正向激励</strong>: 利用其理解能力强的优势，让其担任小组代码审查员</li>
+    </ol>
+  </div>
+
+  <p style="text-align:center;color:#999;font-size:12px;margin-top:30px;">
+    生成时间: 2026-05-25 | Student Batch Analyzer | qwen3-moe-2x4b-8b
+  </p>
+</div>
+
+<script>
+const labels = ['03-07', '03-14', '03-21', '03-28', '04-04', '04-11', '04-18', '04-29'];
+
+new Chart(document.getElementById('overallChart'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [{
+      label: '综合评分',
+      data: [80, 81, 78, 82, 84, 82, 80, 79],
+      borderColor: '#2563eb',
+      backgroundColor: 'rgba(37,99,235,0.08)',
+      fill: true,
+      tension: 0.3,
+      pointRadius: 5,
+      pointBackgroundColor: '#2563eb'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { min: 60, max: 100, grid: { color: '#f3f4f6' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['逻辑思维', '编程能力', '创造力', '专注力', '沟通表达', '问题解决'],
+    datasets: [{
+      label: '04-29 最新',
+      data: [85, 82, 80, 72, 80, 82],
+      borderColor: '#2563eb',
+      backgroundColor: 'rgba(37,99,235,0.15)',
+      pointBackgroundColor: '#2563eb'
+    }, {
+      label: '04-04 峰值',
+      data: [86, 83, 82, 85, 83, 82],
+      borderColor: '#10b981',
+      backgroundColor: 'rgba(16,185,129,0.08)',
+      pointBackgroundColor: '#10b981',
+      borderDash: [5, 5]
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      r: { min: 50, max: 100, ticks: { stepSize: 10, backdropColor: 'transparent' }, grid: { color: '#e5e7eb' } }
+    }
+  }
+});
+
+new Chart(document.getElementById('dimensionsChart'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [
+      { label: '逻辑思维', data: [82,83,80,85,86,85,84,85], borderColor: '#2563eb', tension: 0.3, pointRadius: 3 },
+      { label: '编程能力', data: [78,80,78,82,83,82,81,82], borderColor: '#10b981', tension: 0.3, pointRadius: 3 },
+      { label: '专注力', data: [85,85,83,85,85,83,78,72], borderColor: '#ef4444', tension: 0.3, pointRadius: 3 },
+    ]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    scales: {
+      y: { min: 60, max: 100, grid: { color: '#f3f4f6' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>
